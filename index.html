@@ -4,21 +4,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- === Link to style.css === -->
     <link rel="stylesheet" href="./assets/style.css" />
+    <!-- === Title === -->
     <title>Weather Dashboard</title>
 </head>
 <body>
-    <div class="input">
-        <input type="text" class="inputValue" placeholder="Enter City Name">
-        <input type="submit" value="Submit" class="button">
-    </div>
-
-    <div class="display">
-        <h1 class="name"></h1>
-        <p class="description"></p>
-        <p class="temperature"></p>
-    </div>
-
-    <script type="text/javascript" src="./assets/script.js"></script>
+<!-- === Heading & Search Form === -->
+    <header id="header">
+        <div>
+        <h1 class="heading">Weather Dashboard</h1>
+        <form  id="search-city">
+            <input name="city" type="text" placeholder="Please Enter Your City" id="current-city">
+            <button class="button" type="submit">SUBMIT</button>
+        </form>
+        </div>
+    </header>
+<!-- === Weather API === -->
+    <main id="main">
+        <div id="main">
+            <div class="weather">
+                <div class="city-ico"></div>
+                <div class="city"></div>
+                <div class="wind"></div>
+                <div class="humidity"></div>
+                <div class="temp"></div>
+            </div>
+        </div>
+    </main>
+<!-- === Links === -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="./assets/script.js"></script>
 </body>
 </html>
