@@ -1,40 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- === Link to style.css === -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- CSS -->
     <link rel="stylesheet" href="./assets/style.css" />
-    <!-- === Title === -->
+    <!-- Title -->
     <title>Weather Dashboard</title>
 </head>
 <body>
-<!-- === Heading & Search Form === -->
-    <header id="header">
-        <div>
+    <!-- Header -->
+    <header class="d-flex justify-content-center heading">
         <h1 class="heading">Weather Dashboard</h1>
-        <form  id="search-city">
-            <input name="city" type="text" placeholder="Please Enter Your City" id="current-city">
-            <button class="button" type="submit">SUBMIT</button>
-        </form>
-        </div>
     </header>
-<!-- === Weather API === -->
-    <main id="main">
-        <div id="main">
-            <div class="weather">
-                <div class="city-ico"></div>
-                <div class="city"></div>
-                <div class="wind"></div>
-                <div class="humidity"></div>
-                <div class="temp"></div>
+    <div class="container">
+        <div class="search-area d-flex row">
+            <!-- Search Bar & Past Searches -->
+            <div class="col-3">
+                <form id="search-form">
+                    <input id="city-search-input" type="text" placeholder="Please Enter Your City"/>
+                    <button type="submit" class="btn btn-primary btn-lg" id="search-button">Search</button>
+                </form>
+                <ul id="past-searches" class="past-searches flex-column list-group"></ul>
+            </div>
+            <!-- Weather Forecasts -->
+            <div class="col-9 all-forecasts">
+                <div id="today-forecast" class="list-group"></div>
+                <div class="d-flex row" id="five-day-forecast"></div>
+                <div class="d-flex row">
+                    <div class="col day-forecast"></div>
+                    <div class="col day-forecast"></div>
+                    <div class="col day-forecast"></div>
+                    <div class="col day-forecast"></div>
+                    <div class="col day-forecast"></div>
+                </div>
             </div>
         </div>
-    </main>
-<!-- === Links === -->
+    </div>
+    <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/plugin/utc.js"></script>
+    <script>dayjs.extend(window.dayjs_plugin_utc);</script>
     <script src="./assets/script.js"></script>
 </body>
 </html>
