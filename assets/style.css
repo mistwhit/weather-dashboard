@@ -1,4 +1,20 @@
 * {
     font-family: 'Bebas Neue', cursive;
-    color: #9999ff
+    color: #9999ff;
 }
+
+/* UV Colors */
+    .favorable {
+        background: green;
+        border-radius: 5px;
+    }
+
+    .moderate {
+        background: yellow;
+        border-radius: 5px;
+    }
+
+    .severe {
+        background: red;
+        border-radius: 5px;
+    }
