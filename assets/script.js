@@ -46,12 +46,12 @@ function displaySearches () {
     // Looks into localstorage for previous searches
     var searchHistory = JSON.parse(localStorage.previousSearches);
     for (let i = 0; i < searchHistory.length; i++) {
-        var pastSearch = searchHistory[i];
+        var previousSearch = searchHistory[i];
         // Creates buttons of previous searches
         var searchDisplay = document.createElement("button");
-        searchDisplay.textContent = pastSearch;
+        searchDisplay.textContent = previousSearch;
         searchDisplay.setAttribute("class", "city-search-buttons");
-        searchDisplay.setAttribute("id", pastSearch);
+        searchDisplay.setAttribute("id", previousSearch);
         previousSearches.append(searchDisplay);
         // Searches the city again if button is clicked
         searchDisplay.addEventListener("click", storedSearch);
