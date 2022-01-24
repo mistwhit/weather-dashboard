@@ -34,26 +34,24 @@ function searchByCity (event) {
         // Adds searches array to localstorage as a string
         localStorage.setItem("previousSearches", JSON.stringify(previousSearchesArray));
         searches = searches + 1;
-        // Calls function to display past searches
+        // Calls function to display previous searches
         displaySearches();
     }
 }
 
-// Takes past searches from local storage & displays them as buttons to be clicked & searched again
+// Takes previous searches from local storage & displays them as buttons to be clicked & searched again
 function displaySearches () {
-    // Clears out past searches
+    // Clears out previous searches
     previousSearches.empty();
-    // Looks into localstorage for past searches
+    // Looks into localstorage for previous searches
     var searchHistory = JSON.parse(localStorage.previousSearches);
     for (let i = 0; i < searchHistory.length; i++) {
         var pastSearch = searchHistory[i];
-        // Creates buttons of past searches
+        // Creates buttons of previous searches
         var searchDisplay = document.createElement("button");
         searchDisplay.textContent = pastSearch;
         searchDisplay.setAttribute("class", "city-search-buttons");
         searchDisplay.setAttribute("id", pastSearch);
-        // Logs the past searches to the console for testing
-        console.log(pastSearch);
         previousSearches.append(searchDisplay);
         // Searches the city again if button is clicked
         searchDisplay.addEventListener("click", storedSearch);
@@ -64,7 +62,6 @@ function displaySearches () {
 function storedSearch (event) {
     var city = event.target.getAttribute("id");
     if (city) {
-        console.log(city);
         todaysWeather(city);
         fiveDayWeather(city);
     }
