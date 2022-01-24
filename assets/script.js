@@ -5,7 +5,7 @@ var previousSearches = $("#previous-searches");
 var previousSearchesArray = [];
 var searches = 0;
 var todaysForecast = document.querySelector("#todays-forecast");
-var todaysDate = dayjs().format("MM/DD/YYYY");
+var todaysDate = dayjs().format("MM/DD");
 var fiveDayForecast = document.querySelector("#five-day-forecast");
 var fiveDayDisplay = "";
 var fiveDayEls = document.querySelectorAll(".day-forecast");
@@ -197,7 +197,7 @@ function fiveDayWeather (city) {
         // Gets data and displays dates for five day forecast
         var forecastDay = dayjs()
             .add(i + 1, "day")
-            .format("MM/DD/YYYY");
+            .format("MM/DD");
         console.log(forecastDay);
         var forecastDayDisplay = document.createElement("h3");
         forecastDayDisplay.textContent = forecastDay;

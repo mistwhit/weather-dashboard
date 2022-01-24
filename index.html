@@ -4,38 +4,42 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <!-- CSS -->
     <link rel="stylesheet" href="./assets/style.css" />
+    <!-- Fav Icon -->
+    <link rel="icon" type="image/x-icon" href="./images/favicon-32x32.png">
     <!-- Title -->
     <title>Weather Dashboard</title>
 </head>
 <body>
     <!-- Header -->
-    <header class="d-flex justify-content-center heading">
+    <header>
         <h1 class="heading">Weather Dashboard</h1>
     </header>
     <div class="container">
-        <div class="search-area d-flex row">
+        <div>
             <!-- Search Bar & Past Searches -->
-            <div class="col-3">
+            <div>
                 <form id="search-form">
                     <input id="user-input" type="text" placeholder="Please Enter Your City"/>
-                    <button type="submit" class="btn btn-primary btn-lg" id="submit-button">Submit</button>
+                    <button type="submit" id="submit-button">Submit</button>
                 </form>
-                <ul id="previous-searches" class="previous-searches flex-column list-group"></ul>
+                <ul id="previous-searches" class="previous-searches"></ul>
             </div>
             <!-- Weather Forecasts -->
-            <div class="col-9 all-forecasts">
+            <div class="all-forecasts">
                 <div id="todays-forecast" class="list-group"></div>
-                <div class="d-flex row" id="five-day-forecast"></div>
-                <div class="d-flex row">
-                    <div class="col day-forecast"></div>
-                    <div class="col day-forecast"></div>
-                    <div class="col day-forecast"></div>
-                    <div class="col day-forecast"></div>
-                    <div class="col day-forecast"></div>
+                <div id="five-day-forecast"></div>
+                <div>
+                    <div class="day-forecast"></div>
+                    <div class="day-forecast"></div>
+                    <div class="day-forecast"></div>
+                    <div class="day-forecast"></div>
+                    <div class="day-forecast"></div>
                 </div>
             </div>
         </div>
