@@ -6,6 +6,9 @@ var pastSearchesKeywords = [];
 var searches = 0;
 var todayForecast = document.querySelector("#today-forecast");
 var todayDate = dayjs().format("MM/DD/YYYY");
+var fiveDayDiv = document.querySelector("#five-day-forecast");
+var fiveDayDisplay = "";
+var fiveDayForecastEls = document.querySelectorAll(".day-forecast");
 
 // Clears out localstorage when the page loads
 localStorage.clear();
@@ -24,6 +27,8 @@ function citySearch (event) {
     if (city) {
         // Calls function for today's forecast for searched city
         forecastWeather(city);
+        // Calls function for five day forecast for searched city
+        fiveDayForecast(city);
         // Saves searches to an array
         pastSearchesKeywords.push(city);
         // Adds searches array to localstorage as a string
@@ -61,6 +66,7 @@ function searchAgain(event) {
     if (city) {
         console.log(city);
         forecastWeather(city);
+        fiveDayForecast(city);
     }
 }
 
@@ -76,6 +82,8 @@ function forecastWeather(city) {
 
     // Clears out previous data 
     todayForecast.textContent = "";
+    fiveDayForecastEls.textContent = "";
+    fiveDayDisplay.textContent = "";
 
     // Uses query URL to fetch data
     fetch(queryURL).then(function (response) {
@@ -140,7 +148,7 @@ function getUV(lat, lon) {
         response.json().then(function (data) {
             console.log(data);
 
-        // Adds UV data as a list item
+        // Displays UV data
         var uvDisplay = document.createElement("li");
         var uvDisplayNumber = document.createElement("span");
         uvDisplay.textContent = "UV Index: ";
@@ -160,4 +168,68 @@ function getUV(lat, lon) {
         uvDisplay.append(uvDisplayNumber);
         });
     });
+}
+
+// Five Day Forecast for Searched City
+function fiveDayForecast(city) {
+    // Creates query URL using searched city and API Key
+    var queryURL =
+        "https://api.openweathermap.org/data/2.5/forecast?q=" +
+        city +
+        "&units=imperial" +
+        "&appid=" +
+        APIKey;
+
+    // Uses query URL to fetch data
+    fetch(queryURL).then(function (response) {
+        response.json().then(function (data) {
+            console.log(data);
+
+        // Displays five day forecast heading
+        fiveDayDisplay = document.createElement("h2");
+        fiveDayDisplay.textContent = "5-Day Forecast";
+        fiveDayDiv.append(fiveDayDisplay);
+
+        // Loops over html elements to display five day forecast
+        for (let i = 0; i < 5; i++) {
+            fiveDayForecastEls[i].innerHTML = "";
+
+        // Gets data and displays dates for five day forecast
+        var forecastDay = dayjs()
+            .add(i + 1, "day")
+            .format("MM/DD/YYYY");
+        console.log(forecastDay);
+        var forecastDayDisplay = document.createElement("h3");
+        forecastDayDisplay.textContent = forecastDay;
+        fiveDayForecastEls[i].append(forecastDayDisplay);
+
+        // Icons
+        var weatherIcon = data.list[i].weather[0].icon;
+        var iconDisplay = document.createElement("img");
+        iconDisplay.width = 100;
+        iconDisplay.height = 100;
+        iconDisplay.setAttribute(
+            "src",
+            "https://openweathermap.org/img/wn/" + weatherIcon + "@2x.png"
+        );
+        fiveDayForecastEls[i].append(iconDisplay);
+
+        // Temperature
+        var tempDisplay = document.createElement("li");
+        tempDisplay.textContent = "Temp: " + data.list[i].main.temp + "°F";
+        fiveDayForecastEls[i].append(tempDisplay);
+
+        // Wind
+        var windDisplay = document.createElement("li");
+        windDisplay.textContent = "Wind: " + data.list[i].wind.speed + " MPH";
+        fiveDayForecastEls[i].append(windDisplay);
+
+        // Humidity
+        var humidityDisplay = document.createElement("li");
+        humidityDisplay.textContent =
+        "Humidity: " + data.list[i].main.humidity + "%";
+        fiveDayForecastEls[i].append(humidityDisplay);
+        }
+    });
+});
 }
