@@ -1,5 +1,5 @@
 var city;
-var APIKey = "e256b571cb3fa1813dc8566aad393b43";
+var APIKey = "2f710657032dbf024be6584bc8a359ee";
 var searchForm = document.querySelector("#search-form");
 var pastSearches = $("#past-searches");
 var pastSearchesKeywords = [];
@@ -124,7 +124,7 @@ function forecastWeather(city) {
     });
 }
 
-// Get UV data and pass it back to today's weather forecast
+// Gets UV data and passes it back to today's weather forecast
 function getUV(lat, lon) {
     // Creates query URL using latitude and longitude and API Key
     var queryURL =
