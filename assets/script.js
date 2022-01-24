@@ -8,7 +8,7 @@ var todaysForecast = document.querySelector("#todays-forecast");
 var todaysDate = dayjs().format("MM/DD");
 var fiveDayForecast = document.querySelector("#five-day-forecast");
 var fiveDayDisplay = "";
-var fiveDayEls = document.querySelectorAll(".day-forecast");
+var fiveDayEls = document.querySelectorAll(".day");
 
 // Clears out localstorage when the page loads
 localStorage.clear();
