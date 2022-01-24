@@ -20,12 +20,12 @@
 <body>
     <!-- Header -->
     <header class="d-flex justify-content-center">
-        <h1>Weather Dashboard</h1>
+        <h1><img src="./images/favicon-32x32.png"> Weather Dashboard</h1>
     </header>
     <div class="container">
         <div class="d-flex row">
             <!-- Search Bar & Past Searches -->
-            <div class="col-3">
+            <div class="col-4">
                 <form id="search-form">
                     <input id="user-input" type="text" placeholder="Please Enter Your City"/>
                     <button type="submit" id="submit-button" class="btn-dark btn-sm">Submit</button>
@@ -33,7 +33,7 @@
                 <ul id="previous-searches" class="flex-column previous-searches"></ul>
             </div>
             <!-- Weather Forecasts -->
-            <div class="col-9 card all-forecasts">
+            <div class="col-8 card all-forecasts">
                 <div id="todays-forecast" class="list-group"></div>
                 <div id="five-day-forecast" class="d-flex row"></div>
                 <div class="weather d-flex row">
