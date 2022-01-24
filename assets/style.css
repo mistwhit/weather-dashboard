@@ -1,7 +1,11 @@
 * {
-    font-family: 'Bebas Neue', cursive;
-    color: #9999ff;
-}
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-weight: normal;
+    font-family: 'Lato', sans-serif;
+    }
+    
 
 /* UV Colors */
     .favorable {
